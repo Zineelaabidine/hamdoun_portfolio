@@ -1,0 +1,37 @@
+{
+  "name": "Zine El Aabidine Hamdoun - Software Engineer Portfolio",
+  "short_name": "Zine Hamdoun",
+  "description": "Software Engineer graduated from FST Béni Mellal, Morocco. Specializing in AI-powered applications, full-stack web development, and modern software solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }
+  ]
+}

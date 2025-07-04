@@ -125,6 +125,42 @@ const Projects = () => {
         reportLink: "https://drive.google.com/file/d/1w6tc0CK2vN3rwxNEoXYdNeZSsqG5FzHr/view?usp=sharing",
         githubLink: "https://github.com/Zineelaabidine/pharmacyManagementApp"
       }
+    },
+    {
+      id: 4,
+      title: "InstantAd - AI-Powered Advertising Generation Platform",
+      description: "Final Year Project (PFE) - An innovative web application that uses artificial intelligence to automatically generate visual and textual advertising content for social media platforms.",
+      tech: ["React", "TypeScript", "Node.js", "Express", "Supabase", "OpenAI", "DeepSeek", "Tailwind CSS"],
+      link: "#",
+      period: "2025/4/1 - 2025/6/1",
+      detailedInfo: {
+        fullDescription: "Developed during my Final Year Project at BM DIGITAL PRIME, InstantAd is a comprehensive web application that leverages artificial intelligence to revolutionize advertising content creation. The platform enables users to transform product images into professional advertising content adapted for major social media platforms like Facebook, Instagram, and Twitter, supporting multiple languages and providing an intuitive interface for users without design or marketing expertise.",
+        features: [
+          "AI-powered automatic generation of visual and textual advertising content",
+          "Multi-platform support (Facebook, Instagram, Twitter, web banners)",
+          "Multilingual content generation capabilities",
+          "Brand setup and management system",
+          "Real-time advertising preview and customization",
+          "User dashboard for managing generated advertisements",
+          "AI assistant for marketing guidance and support",
+          "Responsive design with modern UI/UX",
+          "Secure user authentication and data protection",
+          "Advertisement history and management system"
+        ],
+        duration: "2 months",
+        teamSize: "2-person team (with El Hamzaoui Abdessamad)",
+        objectives: [
+          "Democratize access to professional advertising creation tools",
+          "Reduce time and costs associated with traditional advertising design",
+          "Integrate cutting-edge AI technologies for content generation",
+          "Provide an intuitive platform for non-technical users",
+          "Enable rapid adaptation to market trends and social media formats",
+          "Implement modern full-stack development practices",
+          "Deliver a scalable and maintainable web application"
+        ],
+        reportLink: "https://drive.google.com/file/d/1aUthaGuOoOPS68fZH_7JJHEb3Rs0Rauq/view?usp=sharing",
+        githubLink: "https://github.com/Zineelaabidine/instantAd"
+      }
     }
   ];
 
@@ -199,7 +235,7 @@ const Projects = () => {
               className="project-item project-card group"
             >
               <div className="h-48 bg-secondary flex items-center justify-center overflow-hidden relative">
-                {(project.id === 1 || project.id === 2 || project.id === 3) ? (
+                {(project.id === 1 || project.id === 2 || project.id === 3 || project.id === 4) ? (
                   <>
                     <img
                       src={`/project${project.id}.png`}
@@ -281,7 +317,7 @@ const Projects = () => {
                 <div className="mt-6 space-y-6">
                   {/* Project Image */}
                   <div className="w-full h-64 bg-secondary/50 rounded-lg overflow-hidden border border-border flex items-center justify-center">
-                    {(project.id === 1 || project.id === 2 || project.id === 3) ? (
+                    {(project.id === 1 || project.id === 2 || project.id === 3 || project.id === 4) ? (
                       <img
                         src={`/project${project.id}.png`}
                         alt={project.title}

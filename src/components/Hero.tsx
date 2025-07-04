@@ -38,15 +38,15 @@ const Hero: React.FC = () => {
       >
         <div className="text-center md:text-left md:flex-1 md:mr-8">
           <h2 className="text-sm md:text-base text-accent mb-2 tracking-wider">
-            Software Engineer
+            Software Engineer & Developer
           </h2>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
             Zine El Aabidine <br />
             <span className="text-primary">Hamdoun</span>
           </h1>
           <p className="max-w-2xl text-muted-foreground text-lg mb-8">
-            I'm a Computer Engineering student at FST Béni Mellal, graduating in one month. 
-            Passionate about building scalable web and desktop applications using modern frameworks.
+            I'm a Software Engineer graduated from FST Béni Mellal, Morocco. Recently completed my Final Year Project on AI-powered advertising generation.
+            Passionate about building innovative applications that integrate artificial intelligence with modern web technologies.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <a

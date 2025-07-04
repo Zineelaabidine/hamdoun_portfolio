@@ -4,6 +4,10 @@ Allow: /
 # Sitemap
 Sitemap: https://zinehamdoun.site/sitemap.xml
 
+# Allow favicon and important assets
+Allow: /favicon.png
+Allow: /site.webmanifest
+
 # Disallow crawling of certain files
 Disallow: /src/
 Disallow: /node_modules/

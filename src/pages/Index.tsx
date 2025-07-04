@@ -14,7 +14,7 @@ import PageLoader from '@/components/PageLoader';
 const Index: React.FC = () => {
   useEffect(() => {
     // Update document title
-    document.title = "Zine El Aabidine Hamdoun | Software Engineer";
+    document.title = "Zine El Aabidine Hamdoun | Software Engineer & Developer";
     
     // Observe sections for animation
     const sections = document.querySelectorAll('section');

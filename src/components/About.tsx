@@ -46,13 +46,13 @@ const About = () => {
         >
           <div>
             <p className="text-lg mb-4">
-              Hello! I'm <span className="text-accent font-medium">Zine El Aabidine Hamdoun</span>, a Computer Engineering student based in Morocco. I'm graduating in June 2024 from FST Béni Mellal.
+              Hello! I'm <span className="text-accent font-medium">Zine El Aabidine Hamdoun</span>, a Software Engineer graduated from FST Béni Mellal, Morocco. I recently completed my Bachelor's degree in Sciences and Techniques, specializing in Computer Engineering (Génie Informatique).
             </p>
             <p className="text-lg mb-4">
-              I specialize in building modern web applications and desktop solutions that solve real-world problems. My education has given me a strong foundation in software engineering principles and best practices.
+              I specialize in building innovative applications that integrate artificial intelligence with modern web technologies. My recent Final Year Project, InstantAd, demonstrates my expertise in AI-powered solutions, full-stack development, and creating user-centric applications that solve real-world business challenges.
             </p>
             <p className="text-lg">
-              I'm passionate about creating intuitive user experiences and writing clean, efficient code. When I'm not coding, I enjoy exploring new technologies and contributing to open-source projects.
+              I'm passionate about leveraging cutting-edge technologies like AI, React, and Node.js to create scalable solutions. My experience spans from traditional web development to advanced AI integration, always focusing on delivering high-quality, maintainable code and exceptional user experiences.
             </p>
           </div>
           
@@ -66,7 +66,10 @@ const About = () => {
                     FST Béni Mellal
                   </p>
                   <p className="text-primary font-medium">
-                    Graduating in June 2024
+                    Graduated June 2025
+                  </p>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Bachelor's in Sciences & Techniques
                   </p>
                 </div>
               </div>
