@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://zinehamdoun.site/sitemap.xml
+
+# Disallow crawling of certain files
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /*.json
+Disallow: /*.ts
+Disallow: /*.tsx
