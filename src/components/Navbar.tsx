@@ -1,10 +1,19 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import { Download, Menu, X } from 'lucide-react';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from '@/components/ui/sheet';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -62,13 +71,75 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
+          <Button
+            asChild
+            variant="outline"
+            size="sm"
+            className="ml-4"
+          >
+            <a
+              href="/cv_zine_el_aabidine_hamdoun.pdf"
+              download="Zine_El_Aabidine_Hamdoun_CV.pdf"
+              className="flex items-center gap-2"
+            >
+              <Download className="w-3 h-3" />
+              CV
+            </a>
+          </Button>
         </nav>
         
         <div className="md:hidden">
-          {/* Mobile menu would go here */}
-          <button className="p-2 text-accent">
-            Menu
-          </button>
+          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="sm" className="p-2">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <div className="flex flex-col space-y-4 mt-8">
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-lg font-semibold">Navigation</span>
+                </div>
+
+                <nav className="flex flex-col space-y-4">
+                  {navLinks.map((link) => (
+                    <SheetClose asChild key={link.name}>
+                      <a
+                        href={link.href}
+                        className={cn(
+                          'text-lg font-medium transition-colors hover:text-accent py-2',
+                          activeSection === link.href.substring(1) && 'text-accent'
+                        )}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {link.name}
+                      </a>
+                    </SheetClose>
+                  ))}
+
+                  <div className="pt-4 border-t">
+                    <SheetClose asChild>
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="w-full"
+                      >
+                        <a
+                          href="/cv_zine_el_aabidine_hamdoun.pdf"
+                          download="Zine_El_Aabidine_Hamdoun_CV.pdf"
+                          className="flex items-center justify-center gap-2"
+                        >
+                          <Download className="w-4 h-4" />
+                          Download CV
+                        </a>
+                      </Button>
+                    </SheetClose>
+                  </div>
+                </nav>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>

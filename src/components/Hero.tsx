@@ -1,6 +1,8 @@
 
 import React, { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import { Download } from 'lucide-react';
 import ProfileImage3D from './ProfileImage3D';
 
 const Hero: React.FC = () => {
@@ -47,14 +49,29 @@ const Hero: React.FC = () => {
             Passionate about building scalable web and desktop applications using modern frameworks.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <a 
-              href="#projects" 
+            <a
+              href="#projects"
               className="px-8 py-3 rounded-md bg-primary text-primary-foreground font-medium transition-all hover:bg-primary/80 animate-glow"
             >
               View My Work
             </a>
-            <a 
-              href="#contact" 
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-primary/30 hover:border-primary"
+            >
+              <a
+                href="/cv_zine_el_aabidine_hamdoun.pdf"
+                download="Zine_El_Aabidine_Hamdoun_CV.pdf"
+                className="flex items-center gap-2"
+              >
+                <Download className="w-4 h-4" />
+                Download CV
+              </a>
+            </Button>
+            <a
+              href="#contact"
               className="px-8 py-3 rounded-md bg-secondary text-secondary-foreground font-medium border border-primary/30 transition-all hover:border-primary"
             >
               Contact Me
