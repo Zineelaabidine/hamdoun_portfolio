@@ -1,11 +1,13 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
 import ProfileImage3D from './ProfileImage3D';
+import CVDownloadModal from './CVDownloadModal';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [cvModalOpen, setCvModalOpen] = useState(false);
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -55,19 +57,13 @@ const Hero: React.FC = () => {
               View My Work
             </a>
             <Button
-              asChild
               variant="outline"
               size="lg"
               className="border-primary/30 hover:border-primary"
+              onClick={() => setCvModalOpen(true)}
             >
-              <a
-                href="/cv_zine_el_aabidine_hamdoun.pdf"
-                download="Zine_El_Aabidine_Hamdoun_CV.pdf"
-                className="flex items-center gap-2"
-              >
-                <Download className="w-4 h-4" />
-                Download CV
-              </a>
+              <Download className="w-4 h-4 mr-2" />
+              Download CV
             </Button>
             <a
               href="#contact"
@@ -90,6 +86,12 @@ const Hero: React.FC = () => {
           </a>
         </div>
       </div>
+
+      {/* CV Download Modal */}
+      <CVDownloadModal
+        isOpen={cvModalOpen}
+        onClose={() => setCvModalOpen(false)}
+      />
     </section>
   );
 };

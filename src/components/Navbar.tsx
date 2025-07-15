@@ -15,6 +15,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import CVDownloadModal from '@/components/CVDownloadModal';
 
 type ProjectCategory = 'mini' | 'pfe' | 'personal';
 
@@ -28,6 +29,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [cvModalOpen, setCvModalOpen] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -129,19 +131,13 @@ const Navbar = () => {
             </DropdownMenuContent>
           </DropdownMenu>
           <Button
-            asChild
             variant="outline"
             size="sm"
             className="ml-4"
+            onClick={() => setCvModalOpen(true)}
           >
-            <a
-              href="/cv_zine_el_aabidine_hamdoun.pdf"
-              download="Zine_El_Aabidine_Hamdoun_CV.pdf"
-              className="flex items-center gap-2"
-            >
-              <Download className="w-3 h-3" />
-              CV
-            </a>
+            <Download className="w-3 h-3 mr-2" />
+            CV
           </Button>
         </nav>
         
@@ -198,18 +194,15 @@ const Navbar = () => {
                   <div className="pt-4 border-t">
                     <SheetClose asChild>
                       <Button
-                        asChild
                         variant="outline"
                         className="w-full"
+                        onClick={() => {
+                          setCvModalOpen(true);
+                          setMobileMenuOpen(false);
+                        }}
                       >
-                        <a
-                          href="/cv_zine_el_aabidine_hamdoun.pdf"
-                          download="Zine_El_Aabidine_Hamdoun_CV.pdf"
-                          className="flex items-center justify-center gap-2"
-                        >
-                          <Download className="w-4 h-4" />
-                          Download CV
-                        </a>
+                        <Download className="w-4 h-4 mr-2" />
+                        Download CV
                       </Button>
                     </SheetClose>
                   </div>
@@ -219,6 +212,12 @@ const Navbar = () => {
           </Sheet>
         </div>
       </div>
+
+      {/* CV Download Modal */}
+      <CVDownloadModal
+        isOpen={cvModalOpen}
+        onClose={() => setCvModalOpen(false)}
+      />
     </header>
   );
 };
