@@ -122,7 +122,7 @@ const CVDownloadModal: React.FC<CVDownloadModalProps> = ({ isOpen, onClose }) =>
             Download CV
           </DialogTitle>
           <DialogDescription>
-            Would you like to share your name? This helps me know who's interested in my work.
+            Feel free to share your name — it helps me better understand who’s downloading my CV and improves my portfolio statistics.
           </DialogDescription>
         </DialogHeader>
 
