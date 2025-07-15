@@ -45,7 +45,7 @@ const ProfileImage3D = () => {
   return (
     <div
       ref={containerRef}
-      className="relative mx-auto w-64 h-64 md:w-80 md:h-80 transition-all duration-300 ease-out cursor-pointer"
+      className="relative mx-auto w-64 h-64 md:w-80 md:h-80 transition-all duration-300 ease-out cursor-pointer animate-fade-in"
       style={{
         transformStyle: 'preserve-3d',
       }}

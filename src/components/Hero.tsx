@@ -1,6 +1,5 @@
 
 import React, { useEffect, useRef } from 'react';
-import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
 import ProfileImage3D from './ProfileImage3D';

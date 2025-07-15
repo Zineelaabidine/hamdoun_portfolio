@@ -2,13 +2,27 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { Download, Menu, X } from 'lucide-react';
+import { Download, Menu, X, ChevronDown } from 'lucide-react';
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   SheetClose,
 } from '@/components/ui/sheet';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+
+type ProjectCategory = 'mini' | 'pfe' | 'personal';
+
+const categoryLabels: Record<ProjectCategory, string> = {
+  personal: 'Personal Projects',
+  pfe: 'PFE (Final Year Project)',
+  mini: 'Mini Projects'
+};
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -44,9 +58,19 @@ const Navbar = () => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Tech Stack', href: '#tech' },
-    { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' }
   ];
+
+  const handleProjectCategoryClick = (category: ProjectCategory) => {
+    // Scroll to projects section and update the category
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+      // We'll need to communicate the category selection to the Projects component
+      // For now, we'll use URL hash parameters
+      window.location.hash = `projects-${category}`;
+    }
+  };
   
   return (
     <header className={cn(
@@ -71,6 +95,39 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
+
+          {/* Projects Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                className={cn(
+                  'nav-link flex items-center gap-1',
+                  activeSection === 'projects' && 'text-accent'
+                )}
+              >
+                Projects
+                <ChevronDown className="h-3 w-3" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-56">
+              {(Object.keys(categoryLabels) as ProjectCategory[]).map((category) => (
+                <DropdownMenuItem
+                  key={category}
+                  onClick={() => handleProjectCategoryClick(category)}
+                  className="cursor-pointer"
+                >
+                  <div className="flex flex-col">
+                    <span className="font-medium">{categoryLabels[category]}</span>
+                    <span className="text-xs text-muted-foreground">
+                      {category === 'personal' && 'Live deployed projects & demos'}
+                      {category === 'pfe' && 'Final year capstone project'}
+                      {category === 'mini' && 'Academic projects during studies'}
+                    </span>
+                  </div>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
           <Button
             asChild
             variant="outline"
@@ -117,6 +174,26 @@ const Navbar = () => {
                       </a>
                     </SheetClose>
                   ))}
+
+                  {/* Projects Section in Mobile */}
+                  <div className="py-2">
+                    <div className="text-lg font-medium mb-2 text-foreground">Projects</div>
+                    <div className="pl-4 space-y-2">
+                      {(Object.keys(categoryLabels) as ProjectCategory[]).map((category) => (
+                        <SheetClose asChild key={category}>
+                          <button
+                            onClick={() => {
+                              handleProjectCategoryClick(category);
+                              setMobileMenuOpen(false);
+                            }}
+                            className="block w-full text-left text-base font-medium transition-colors hover:text-accent py-1"
+                          >
+                            {categoryLabels[category]}
+                          </button>
+                        </SheetClose>
+                      ))}
+                    </div>
+                  </div>
 
                   <div className="pt-4 border-t">
                     <SheetClose asChild>
